@@ -16,15 +16,18 @@ export interface Project {
   growthNotes: GrowthNote[];
 }
 
-// 실제 앱이 준비되면 이 항목을 교체하세요. 이미지 경로는 projects/example.webp 형식입니다.
+// 다인이가 만든 앱을 순서대로 기록합니다. 이미지 경로는 projects/example.webp 형식입니다.
 export const projects: Project[] = [
   {
-    id: 'first-app',
-    title: '첫 번째 앱을 기다리는 중',
-    description: '작은 아이디어가 앱이 되는 순간, 이곳에 첫 작품을 소개할 거예요.',
-    status: '준비 중',
-    tags: ['첫 프로젝트'],
-    isPlaceholder: true,
+    id: 'runningsmile',
+    title: 'runningsmile',
+    description: '다인이가 만든 첫 번째 앱은 게임이에요. runningsmile을 직접 플레이해 보세요.',
+    status: '완성',
+    tags: ['첫 번째 앱', '게임'],
+    links: [
+      { label: '게임 플레이', url: 'https://runningsmile.netlify.app/' },
+      { label: '소스 코드', url: 'https://github.com/Jaeho211/runningsmile' },
+    ],
     growthNotes: [],
   },
 ];
