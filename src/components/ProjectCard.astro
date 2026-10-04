@@ -1,29 +1,26 @@
 ---
 import type { Project } from '../data/projects';
-interface Props { project: Project }
-const { project } = Astro.props;
-const art: Record<string, string[]> = {
-  'what-grade': ['÷', '＋'],
-  'what-grade-english': ['Aa', '↗'],
-  sudoku: ['▦', '123'],
-  runningsmile: ['☺', '✦'],
-};
-const symbols = art[project.id] ?? ['✦', '＋'];
+interface Props { project: Project; index: number }
+const { project, index } = Astro.props;
+const labels: Record<string, string> = { 'what-grade': 'NUMBER PLAY', 'what-grade-english': 'WORD EXPLORER', sudoku: 'ONE CELL AT A TIME', runningsmile: 'KEEP ON RUNNING' };
+const sudoku = '530070000600195000098000060800060003400803001700020006060000280000419005000080079';
+const playLink = project.links?.[0];
 const imageSrc = project.image
   ? `${import.meta.env.BASE_URL.replace(/\/$/, '')}/${project.image.src.replace(/^\//, '')}`
   : undefined;
 ---
 <article class="project-card" data-project={project.id}>
-  <div class="project-cover">
-    {project.image ? (
-      <img src={imageSrc} alt={project.image.alt} width="800" height="600" loading="lazy" />
-    ) : (
-      <div class="placeholder-art" aria-hidden="true">{symbols.map(symbol => <span class="art-symbol">{symbol}</span>)}</div>
+  <a class="project-cover" href={playLink?.url ?? '#projects'} aria-label={`${project.title} ${playLink?.label ?? '살펴보기'}`}>
+    <div class="cover-caption" aria-hidden="true"><span>{String(index + 1).padStart(2, '0')} / {labels[project.id] ?? 'NEW IDEA'}</span><span>↗</span></div>
+    {project.image ? <img src={imageSrc} alt={project.image.alt} width="800" height="600" loading="lazy" /> : (
+      <div class="poster-art" aria-hidden="true">
+        {project.id === 'what-grade' ? <><span class="math-small">1 + 1 = ?</span><span class="math-large">123<span>＋</span></span><span class="poster-word">문제 속에서 나를 발견해요.</span></> : project.id === 'what-grade-english' ? <><span class="english-large">Aa<span>!</span></span><span class="english-sticker">HELLO,<br />NEW WORDS.</span><span class="poster-word">한 단어씩, 더 넓은 세상으로.</span></> : project.id === 'sudoku' ? <><span class="sudoku-word">SUDO<br />KU.</span><div class="sudoku-art">{sudoku.split('').map((n, i) => <span class:list={{ 'empty-cell': n === '0', 'block-right': i % 9 === 2 || i % 9 === 5, 'block-bottom': Math.floor(i / 9) === 2 || Math.floor(i / 9) === 5 }}>{n === '0' ? '' : n}</span>)}</div><span class="poster-word">빈칸 하나에서 시작하는 발견.</span></> : project.id === 'runningsmile' ? <><span class="run-word">RUN.<br />SMILE.</span><svg class="smile-art" viewBox="0 0 160 160"><circle cx="80" cy="80" r="69" fill="currentColor" /><g fill="#f3fa87"><ellipse cx="58" cy="63" rx="7" ry="12"/><ellipse cx="102" cy="63" rx="7" ry="12"/></g><path d="M45 92 Q80 135 115 92" stroke="#f3fa87" stroke-width="8" fill="none" stroke-linecap="round"/></svg><span class="poster-word">작업실의 첫 번째 게임.</span></> : <span class="fallback-art">✦</span>}
+      </div>
     )}
-    <span class="status">{project.status}</span>
-  </div>
+    <span class="cover-play" aria-hidden="true">{playLink?.label ?? '살펴보기'} ↗</span>
+  </a>
   <div class="project-body">
-    <p class="eyebrow">{project.isPlaceholder ? 'COMING SOON' : 'MADE BY DAIN'}</p>
+    <p class="eyebrow">{project.tags.join(' / ')}</p>
     <h3>{project.title}</h3>
     <p>{project.description}</p>
     {(project.firstRegisteredAt || project.lastModifiedAt) && (
@@ -32,7 +29,7 @@ const imageSrc = project.image
         {project.lastModifiedAt && <div><dt>최근 수정</dt><dd><time datetime={project.lastModifiedAt}>{project.lastModifiedAt.replaceAll('-', '.')}</time></dd></div>}
       </dl>
     )}
-    <ul class="tags" aria-label="프로젝트 키워드">{project.tags.map(tag => <li>{tag}</li>)}</ul>
+
     {project.links?.length ? <div class="project-links">{project.links.map(link => <a href={link.url}>{link.label} <span aria-hidden="true">↗</span></a>)}</div> : null}
     {project.growthNotes.length > 0 && (
       <div class="growth-notes">
