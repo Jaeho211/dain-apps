@@ -2,16 +2,23 @@
 import type { Project } from '../data/projects';
 interface Props { project: Project }
 const { project } = Astro.props;
+const art: Record<string, string[]> = {
+  'what-grade': ['÷', '＋'],
+  'what-grade-english': ['Aa', '↗'],
+  sudoku: ['▦', '123'],
+  runningsmile: ['☺', '✦'],
+};
+const symbols = art[project.id] ?? ['✦', '＋'];
 const imageSrc = project.image
   ? `${import.meta.env.BASE_URL.replace(/\/$/, '')}/${project.image.src.replace(/^\//, '')}`
   : undefined;
 ---
-<article class="project-card">
+<article class="project-card" data-project={project.id}>
   <div class="project-cover">
     {project.image ? (
       <img src={imageSrc} alt={project.image.alt} width="800" height="600" loading="lazy" />
     ) : (
-      <div class="placeholder-art" aria-hidden="true"><span>✦</span><span>＋</span><span>○</span></div>
+      <div class="placeholder-art" aria-hidden="true">{symbols.map(symbol => <span class="art-symbol">{symbol}</span>)}</div>
     )}
     <span class="status">{project.status}</span>
   </div>
