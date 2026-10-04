@@ -20,13 +20,8 @@ import '../styles/global.css';
       <nav aria-label="주 메뉴"><a href="#projects">앱 모음</a></nav>
     </header>
     <main id="main" class="wrap">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-topline"><p class="eyebrow">DAIN’S APPS</p><span>MATH · ENGLISH · PUZZLE · GAME</span></div>
-        <h1 id="hero-title" class="hero-title-ko"><span>다인이의</span><span class="hero-second">앱 모음<span class="hero-star" aria-hidden="true">✦</span></span></h1>
-        <div class="hero-bottom"><p class="hero-description">수학, 영어, 스도쿠, 그리고 게임.<br />마음에 드는 앱을 골라보세요.</p><a class="browse-link" href="#projects">앱 둘러보기 <span aria-hidden="true">↘</span></a></div>
-      </section>
       <section id="projects" class="projects-section" aria-labelledby="projects-title">
-        <div class="section-heading"><div><p class="eyebrow">APPS</p><h2 id="projects-title">골라서 시작해요</h2></div><p>{String(projects.length).padStart(2, '0')}개의 앱</p></div>
+        <div class="collection-label"><h1 id="projects-title">APPS</h1><span>{String(projects.length).padStart(2, '0')}</span></div>
         <div class="project-grid">{projects.map((project, index) => <ProjectCard project={project} index={index} />)}</div>
       </section>
 

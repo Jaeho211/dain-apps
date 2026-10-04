@@ -17,3 +17,6 @@ Run npm run build. Inspect 360px mobile, 768px and 1024px tablet, and 1440px des
 
 ## Copy
 Keep copy factual and plain. Name the collection “다인이의 앱 모음”. Do not imply Dain coded or designed every app. Running Smile was designed by Dain; other entries describe functionality. Avoid sentimental workshop/growth/discovery slogans and an About section. Keep the father out of promotional copy.
+
+## Collection first
+No hero, oversized collection title, introduction, or call to scroll. Show the app posters directly below the header, preceded by a small APPS count. The posters provide visual identity.

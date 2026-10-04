@@ -7,3 +7,6 @@
 
 .hero-title-ko{font-family:"Noto Sans KR",system-ui,sans-serif;font-weight:900;font-size:clamp(60px,9vw,110px);line-height:1.12;letter-spacing:-.065em}.hero-title-ko .hero-star{font-size:.75em;margin-left:.2em}footer{border-top:1px solid var(--rule)}
 @media(max-width:759px){.hero-title-ko{font-size:clamp(48px,13vw,88px)}.hero-bottom>.hero-description{margin:0}}
+
+.projects-section{border-top:0;padding-top:24px}.collection-label{display:flex;align-items:center;gap:10px;margin-bottom:24px;color:#62645b}.collection-label h1{font-family:inherit;font-size:10px;font-weight:700;letter-spacing:.12em;line-height:1.7;margin:0}.collection-label>span{font-size:10px;font-variant-numeric:tabular-nums}.project-card:nth-child(4n + 2){margin-top:40px}
+@media(max-width:759px){.projects-section{padding-top:18px}.collection-label{margin-bottom:16px}.project-card:nth-child(n){margin-top:0}}
