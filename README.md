@@ -26,6 +26,8 @@ npm run preview
   description: '앱을 만든 이유와 할 수 있는 일을 적어요.',
   status: '완성',
   tags: ['키워드'],
+  firstRegisteredAt: '2026-10-02',
+  lastModifiedAt: '2026-10-04',
   image: { src: 'projects/my-app.webp', alt: '앱의 주요 화면 설명' },
   links: [{ label: '앱 열기', url: 'https://example.com' }],
   growthNotes: [{ title: '배운 것', description: '만들며 알게 된 내용을 적어요.', date: '2026-10-02' }],
@@ -35,6 +37,8 @@ npm run preview
 위 예시는 작성 형식 안내입니다. 실제 데이터에는 다인이의 첫 번째 게임 runningsmile과 플레이·소스 코드 링크가 들어 있습니다. 스크린샷은 `public/projects/`에 넣고 `image.src`에는 앞의 `/` 없이 경로를 적습니다. 이미지·링크·성장 기록은 선택 사항이며, 배운 점이 없으면 `growthNotes: []`를 사용합니다. 날짜는 선택 사항이며 `YYYY-MM-DD` 형식입니다.
 
 ## 구성
+
+앱 카드의 **최초 등록**과 **최근 수정**은 해당 앱 GitHub 기본 브랜치의 최초/최신 커밋 날짜를 한국 시간으로 기록합니다. 실제 서비스 공개일이나 배포 성공일을 뜻하지 않습니다. 날짜는 `YYYY-MM-DD` 형식이며 선택 사항입니다. 앱을 수정하면 `src/data/projects.ts`의 `lastModifiedAt`도 갱신하세요. 현재 날짜는 확인한 GitHub 기록을 저장한 값이며 자동 동기화하지 않습니다.
 
 - `src/pages/index.astro`: 첫 화면과 소개 문구
 - `src/components/ProjectCard.astro`: 앱 카드와 앱별 성장 기록

@@ -19,6 +19,12 @@ const imageSrc = project.image
     <p class="eyebrow">{project.isPlaceholder ? 'COMING SOON' : 'MADE BY DAIN'}</p>
     <h3>{project.title}</h3>
     <p>{project.description}</p>
+    {(project.firstRegisteredAt || project.lastModifiedAt) && (
+      <dl class="project-dates" title="GitHub 커밋 기록 기준">
+        {project.firstRegisteredAt && <div><dt>최초 등록</dt><dd><time datetime={project.firstRegisteredAt}>{project.firstRegisteredAt.replaceAll('-', '.')}</time></dd></div>}
+        {project.lastModifiedAt && <div><dt>최근 수정</dt><dd><time datetime={project.lastModifiedAt}>{project.lastModifiedAt.replaceAll('-', '.')}</time></dd></div>}
+      </dl>
+    )}
     <ul class="tags" aria-label="프로젝트 키워드">{project.tags.map(tag => <li>{tag}</li>)}</ul>
     {project.links?.length ? <div class="project-links">{project.links.map(link => <a href={link.url}>{link.label} <span aria-hidden="true">↗</span></a>)}</div> : null}
     {project.growthNotes.length > 0 && (
