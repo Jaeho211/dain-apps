@@ -8,34 +8,29 @@ import '../styles/global.css';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="다인이의 작은 아이디어와 앱, 그리고 만들며 배운 것들을 모으는 성장 기록입니다." />
+    <meta name="description" content="수학, 영어, 스도쿠, 그리고 게임. 마음에 드는 앱을 골라보세요." />
     <meta name="theme-color" content="#f5f1e8" />
     <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
-    <title>다인이의 작은 작업실 · Dain's apps</title>
+    <title>다인이의 앱 모음 · Dain's apps</title>
   </head>
   <body>
     <a class="skip-link" href="#main">본문으로 이동</a>
     <header class="site-header wrap">
       <a class="brand" href={import.meta.env.BASE_URL}><span aria-hidden="true">✦</span> DAIN'S APPS</a>
-      <nav aria-label="주 메뉴"><a href="#projects">앱 모음</a><a href="#about">작업실 소개</a></nav>
+      <nav aria-label="주 메뉴"><a href="#projects">앱 모음</a></nav>
     </header>
     <main id="main" class="wrap">
       <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-topline"><p class="eyebrow">THE LITTLE DIGITAL WORKSHOP</p><span>호기심으로 만드는 중 · SINCE 2025</span></div>
-        <h1 id="hero-title"><span>DAIN MAKES</span><span class="hero-second">THINGS<span class="hero-star" aria-hidden="true">✦</span><span class="accent">.</span></span></h1>
-        <div class="hero-bottom"><div><h2>작은 호기심이 앱이 되는 곳.</h2><p class="hero-description">풀어 보고, 놀아 보고, 새롭게 발견해요.<br />다인이의 아이디어로 만든 작은 디지털 작품집.</p></div><a class="browse-link" href="#projects">작품 둘러보기 <span aria-hidden="true">↘</span></a></div>
+        <div class="hero-topline"><p class="eyebrow">DAIN’S APPS</p><span>MATH · ENGLISH · PUZZLE · GAME</span></div>
+        <h1 id="hero-title" class="hero-title-ko"><span>다인이의</span><span class="hero-second">앱 모음<span class="hero-star" aria-hidden="true">✦</span></span></h1>
+        <div class="hero-bottom"><p class="hero-description">수학, 영어, 스도쿠, 그리고 게임.<br />마음에 드는 앱을 골라보세요.</p><a class="browse-link" href="#projects">앱 둘러보기 <span aria-hidden="true">↘</span></a></div>
       </section>
       <section id="projects" class="projects-section" aria-labelledby="projects-title">
-        <div class="section-heading"><div><p class="eyebrow">PICK SOMETHING. PLAY A LITTLE.</p><h2 id="projects-title">오늘은 뭘 해볼까<span class="accent">?</span></h2></div><p>{String(projects.length).padStart(2, '0')}개의 작은 모험</p></div>
+        <div class="section-heading"><div><p class="eyebrow">APPS</p><h2 id="projects-title">골라서 시작해요</h2></div><p>{String(projects.length).padStart(2, '0')}개의 앱</p></div>
         <div class="project-grid">{projects.map((project, index) => <ProjectCard project={project} index={index} />)}</div>
       </section>
-      <section id="about" class="about" aria-labelledby="about-title">
-        <span class="about-star" aria-hidden="true">✦</span><p class="eyebrow">STILL CURIOUS. STILL MAKING.</p>
-        <h2 id="about-title">완성된 앱도, 만드는 과정도.</h2>
-        <p>궁금한 것을 발견하고, 직접 만들어 보고, 조금씩 고쳐 나가는 과정.<br class="desktop-break" /> 이 작업실은 결과물과 함께 그 과정에서 배운 것들을 기록하는 공간이에요.</p>
-        <p class="about-note">첫 번째 게임 runningsmile부터, 다인이가 만든 앱을 하나씩 기록합니다.</p>
-      </section>
+
     </main>
-    <footer class="wrap"><span>DAIN'S APPS</span><p>작은 시작을 모아, 더 넓은 세상으로.</p></footer>
+    <footer class="wrap"><span>DAIN'S APPS</span><p>dain.fun</p></footer>
   </body>
 </html>

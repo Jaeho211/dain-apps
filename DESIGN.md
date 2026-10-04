@@ -14,3 +14,6 @@ Poster and text links both open the app. Source links, tags, commit dates and gr
 
 ## Verification
 Run npm run build. Inspect 360px mobile, 768px and 1024px tablet, and 1440px desktop. Check overflow, readable Korean, app links, date metadata, keyboard focus, and reduced motion. Render, critique, and revise before publishing. Update this direction when the collection evolves.
+
+## Copy
+Keep copy factual and plain. Name the collection “다인이의 앱 모음”. Do not imply Dain coded or designed every app. Running Smile was designed by Dain; other entries describe functionality. Avoid sentimental workshop/growth/discovery slogans and an About section. Keep the father out of promotional copy.

@@ -19,7 +19,7 @@ export interface Project {
   growthNotes: GrowthNote[];
 }
 
-// 다인이가 만든 앱을 순서대로 기록합니다. 이미지 경로는 projects/example.webp 형식입니다.
+// 앱 모음의 표시 순서입니다. 이미지 경로는 projects/example.webp 형식입니다.
 export const projects: Project[] = [
   {
     id: 'what-grade',
@@ -66,7 +66,7 @@ export const projects: Project[] = [
   {
     id: 'runningsmile',
     title: 'runningsmile',
-    description: '다인이가 만든 첫 번째 앱은 게임이에요. runningsmile을 직접 플레이해 보세요.',
+    description: '다인이가 직접 게임을 디자인했어요. 러닝 스마일을 플레이해 보세요.',
     status: '완성',
     tags: ['첫 번째 앱', '게임'],
     firstRegisteredAt: '2025-06-04',
