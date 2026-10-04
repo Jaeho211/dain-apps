@@ -13,7 +13,7 @@ npm run build
 npm run preview
 ```
 
-개발 화면: `http://localhost:4321/dain-apps/`. `build`는 타입 검사를 수행하고 정적 파일을 `dist/`에 만듭니다.
+개발 화면: `http://localhost:4321/`. `build`는 타입 검사를 수행하고 정적 파일을 `dist/`에 만듭니다.
 
 ## 앱 추가·교체
 
@@ -47,6 +47,8 @@ npm run preview
 
 저장소의 **Settings → Pages → Source**를 **GitHub Actions**로 설정합니다. `main`에 push하면 자동으로 검사·빌드·배포하며, PR에서는 검사와 빌드만 실행합니다. Actions 화면에서 수동 실행도 가능합니다.
 
-사이트: https://jaeho211.github.io/dain-apps/
+사이트: https://dain.fun/
+
+**Settings → Pages → Custom domain**은 `dain.fun`으로 설정하고 **Enforce HTTPS**를 활성화합니다. `public/CNAME`에도 같은 도메인을 기록합니다.
 
 저장소 이름이나 도메인을 바꾸면 `astro.config.mjs`의 `site`와 `base`도 변경하세요. 내부 이미지와 홈 링크는 base 경로를 적용합니다. 글꼴은 Google Fonts를 사용하며, 연결이 없으면 시스템 글꼴로 표시합니다.
